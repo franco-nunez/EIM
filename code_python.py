@@ -21,7 +21,7 @@ Version in Google Collab: https://colab.research.google.com/drive/1zpV6vDKWA9cGA
 # Import
 import numpy as np # For matrix
 import matplotlib.pyplot as plt # For graphs
-
+import pandas as pd
 
 # In[]:
 # Intermediate: Simulations of Y with loop (Obstfeld Rogoff, Chap 1, equation 33)
@@ -59,7 +59,6 @@ plt.show()
 ###
 # Graph: general way
 ###
-import pandas as pd
 
 # First, transform to DataFrame and rename
 data_simulated = pd.DataFrame(r)
@@ -156,4 +155,16 @@ def simulations_of_c(y_simulated, level_c =2, b = 0, ca = 0, param_1 = 0.4, para
     return c
 
 simulations_c2 = simulations_of_c(y_simulated=simulations_y, level_c =2, param_1 = 4, param_2 = 5)
+
+# In[]:
+# Make graph
+data_simulated = pd.DataFrame(simulations_c2)
+
+
+# Graph
+data_simulated.plot()
+plt.legend(loc='lower right')
+plt.xlabel("Time")
+plt.ylabel("Simulations")
+plt.show()
 
